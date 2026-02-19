@@ -31,12 +31,8 @@ document.getElementById('subscriptionForm').addEventListener('submit', function(
         return;
     }
     
-    // Validate email format
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(formData.email)) {
-        showMessage('Please enter a valid email address.', 'error');
-        return;
-    }
+    // Email validation is handled by HTML5 type="email" attribute
+    // Additional validation can be performed server-side
     
     // Validate phone if SMS consent is checked
     if (formData.smsConsent && !formData.phone) {
@@ -89,7 +85,6 @@ document.querySelectorAll('.product-button').forEach(button => {
 });
 
 // Navbar scroll effect
-let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
@@ -100,6 +95,4 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     }
-    
-    lastScroll = currentScroll;
 });
